@@ -1,91 +1,36 @@
-version: "3.1"
-
 nlu:
 - intent: greet
   examples: |
     - hey
     - hello
     - hi
-    - hello there
+    - hey there
     - good morning
     - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
 
-- intent: goodbye
+- intent: order_pizza
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - I want a pizza
+    - I would like to order a [Veggie pizza](pizza_type)
+    - Can I have a [Protein pizza](pizza_type)?
+    - I'll take a [Cheese pizza](pizza_type)
+    - Give me a [pizza](pizza_type)
+    - [pizza](pizza_type) with [onions](topping)
+    - [pizza](pizza_type) with [chickpeas](topping)
 
-- intent: affirm
+- intent: inform
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - [Veggie pizza](pizza_type)
+    - [Protein pizza](pizza_type)
+    - [Cheese pizza](pizza_type)
+    - [onions](topping)
+    - [capsicum](topping)
+    - [chickpeas](topping)
+    - [cottage cheese](topping)
 
-- intent: deny
+- intent: thankyou
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - thank you
+    - thanks
+    - appreciate it
+    - much obliged

@@ -2,33 +2,56 @@ version: "3.1"
 
 intents:
   - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - order_pizza
+  - inform
+  - thankyou
+
+entities:
+  - pizza_type
+  - topping
+
+slots:
+  pizza_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: pizza_type
+      - type: from_text
+
+  topping:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: topping
+      - type: from_text
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hey hi! Welcome to Mc.Burg! What would you like to have today?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_ask_pizza_type:
+    - text: "What type of pizza would you like? We have Veggie, Protein, and Cheese."
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_ask_topping:
+    - text: "Great choice! What toppings would you like? Options are onions, capsicum, chickpeas, and cottage cheese."
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_order_placed:
+    - text: "Order no. 1 placed, thank you for the order. Have a good day!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Goodbye! Have a great day!"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_iamabot:  
+    - text: "I am a bot here to help you with your order."
+  
+  utter_thanks:
+    - text: "You're welcome!"
 
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+forms:
+  order_pizza_form:
+    required_slots:
+     - pizza_type
+     - topping
+
+actions:
+  - action_order_pizza
