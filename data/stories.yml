@@ -1,28 +1,5 @@
 stories:
-- story: complete pizza order with toppings
-  steps:
-  - intent: order_pizza
-  - action: order_pizza_form
-  - active_loop: order_pizza_form
-  - slot_was_set:
-    - pizza_type: "Veggie"
-  - slot_was_set:
-    - topping: "capsicum"
-  - action: utter_order_placed
-
-- story: incomplete order requiring topping
-  steps:
-  - intent: order_pizza
-  - action: order_pizza_form
-  - active_loop: order_pizza_form
-  - slot_was_set:
-    - pizza_type: "Veggie"
-  - action: utter_ask_topping
-  - slot_was_set:
-    - topping: "onions"
-  - action: utter_order_placed
-
-- story: order protein pizza with chickpeas
+- story: order pizza with form
   steps:
   - intent: greet
   - action: utter_greet
@@ -30,7 +7,12 @@ stories:
   - action: order_pizza_form
   - active_loop: order_pizza_form
   - slot_was_set:
-    - pizza_type: "Protein"
+    - pizza_type: "Veggie"
+  - action: utter_ask_topping_veggie
   - slot_was_set:
-    - topping: "chickpeas"
+    - topping: "onions"
+  - action: utter_ask_size
+  - slot_was_set:
+    - size: "large"
+  - active_loop: null
   - action: utter_order_placed

@@ -1,0 +1,12 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taS2NhYA6dwbhQ==": "utter_greet",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpbhMiAUAQvc0lw==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpeSZQMAV+UUpQAsKMquqEmtrYwGN41D9": "order_pizza_form",
+    "eJydzsEKgzAMBuBX6QPImNe+ikgoMxuF2pQ0Clp898V1hx3GCrvlDx9/MpSjMyUxruBu4ilaU+oA0c1ozTsEnwWj2iUjq/FRo1jzYEQ5Gh2LCDJU+l9D4wviSQ8kv+/u1XTyFSEQJVW14sPAnXhW9+PgF50DSVZXl7IlZUN/uY6Nf8Ynhs2HYA==": "utter_ask_topping_veggie",
+    "eJy90MEKwjAMBuBX6QMM0WtfZYxQNJZi15Q2K7iydzfaHTzIJh68NeXjz0/6unSqxoQFzJkdBa1qe0AwI2q1Dt5lxiB2ypjEuCAja2UTIi87GRMzJmj0t4SdFpQusiC6eTavpCcvCJ4oimoRbwaulEZxGws/6OyJs7j2yfcorD8djsM/+rQTmnwDphhdsFDQWodbvTq12u96Dg9DyMX9": "utter_ask_size",
+    "eJy90MEKgzAMBuBX6QPI2K6+ikgoW1bCtCltFKb47sbVww5DxcNuTfn485NqnAozhog92LsQ+9KM+QHetliadWgoCXq1XcKohryOUhoXEWXayehEMEKm5xJ2WnB86IJAw2A/SQvvERrmoCpHfBl4cmzVbSz8oVPDktTlT3kHZdXtcq3/0Sef0KYXCIdA3kGPzhFu9SrMag/3PFQg0bCzdhHnOtQzxxD1PA==": "utter_order_placed",
+    "eJy9kEEKgzAQRa+SA0hpt15FJASdhqExE5JRqOLdOzYuuigqBbubGV7+f6Sa5kJNIcKgTcNIvlRTHrQ3HZRqXRwmBi9snyAKg15WLpWNADzvZPTMEHVGf0vYsaDYSkHAcTTvpAUfQDuiIFSO+GD0nWIn3EbhFzo54iRcPvIzCFbdLtf6Hz75C016aKYQ0Fs9gLUIW16FWtnDnocEEo47tQtxnsP6wJkG2rM86hdNTiYV": "action_listen"
+  }
+}
