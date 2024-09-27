@@ -1,90 +1,71 @@
-version: "3.1"
+version: '3.1'
 
 intents:
-  - greet
-  - order_pizza
-  - inform
-  - thankyou
+- goodbye
+- greet
+- inform
+- order_pizza
+- thankyou
 
 entities:
-  - pizza_type
-  - topping
-  - size
+- size
+- pizza_type
+- topping
 
 slots:
   pizza_type:
     type: text
+    influence_conversation: true
     mappings:
-      - type: from_entity
-        entity: pizza_type
-      - type: from_text
-
+    - type: from_entity
+      entity: pizza_type
   topping:
-    type: list
+    type: text
+    influence_conversation: true
     mappings:
-      - type: from_entity
-        entity: topping
-      - type: from_text
-
+    - type: from_entity
+      entity: topping
   size:
     type: text
+    influence_conversation: true
     mappings:
-      - type: from_entity
-        entity: size
-      - type: from_text
+    - type: from_entity
+      entity: size
 
-responses:
-  utter_ask_pizza_type:
-    - text: "What type of pizza would you like? We have Veggie, Protein, and Cheese."
-      buttons:
-      - title: "Veggie"
-        payload: "/order_pizza{\"pizza_type\": \"Veggie\"}"
-      - title: "Protein"
-        payload: "/order_pizza{\"pizza_type\": \"Protein\"}"
-      - title: "Cheese"
-        payload: "/order_pizza{\"pizza_type\": \"Cheese\"}"
-
-  utter_confirm_order:
-    - text: "You have selected a {size} {pizza_type} pizza with {topping}. Is that correct?"
-
-  utter_greet:
-    - text: "Hey hi! Welcome to Mc.Burg! What would you like to have today?"
-
-  utter_ask_topping_veggie:
-    - text: "Great choice! What toppings would you like for your Veggie pizza? Options are onions and capsicum."
-
-  utter_ask_topping_protein:
-    - text: "Great choice! What toppings would you like for your Protein pizza? Options are chickpeas and cottage cheese."
-
-  utter_ask_size:
-    - text: "What size would you like? We have small, medium, and large."
-      buttons:
-      - title: "Small"
-        payload: "/inform{\"size\": \"small\"}"
-      - title: "Medium"
-        payload: "/inform{\"size\": \"medium\"}"
-      - title: "Large"
-        payload: "/inform{\"size\": \"large\"}"
-
-  utter_order_placed:
-    - text: "Order no. 1 placed, thank you for the order. Have a good day!"
-
-  utter_iamabot:  
-    - text: "I am a bot here to help you with your order."
-  
-  utter_thanks:
-    - text: "You're welcome!"
-
-  utter_goodbye:
-  - text: "Goodbye! Have a great day!"
+actions:
+- action_greet_user
+- action_confirm_order
+- utter_goodbye
+- utter_thanks
+- utter_greet
+- utter_ask_size
+- utter_ask_topping_veggie
+- utter_order_placed
 
 forms:
   order_pizza_form:
     required_slots:
-     - pizza_type
-     - topping
-     - size
+    - pizza_type
+    - topping
+    - size
+
+responses:
+  utter_ask_pizza_type:
+  - text: "What type of pizza would you like?"
+  utter_greet:
+  - text: Hello! How can I help you today?
+  utter_ask_topping_veggie:
+  - text: What toppings would you like on your Veggie pizza?
+  utter_ask_size:
+  - text: What size would you like?
+  utter_order_placed:
+  - text: Your pizza has been ordered!
+  utter_thanks:
+  - text: You're welcome!
+  utter_goodbye:
+  - text: Goodbye! Have a great day!
 
 
-actions:
-  - action_order_pizza
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

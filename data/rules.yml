@@ -1,13 +1,50 @@
 version: "3.1"
 
 rules:
+- rule: Greet user at start
+  steps:
+  - action: action_greet_user
+  
+- rule: Activate pizza order form
+  steps:
+  - intent: order_pizza
+  - action: order_pizza_form
+  - active_loop: order_pizza_form
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: Ask for topping during form
+  condition:
+    - active_loop: order_pizza_form
+    - slot_was_set:
+      - pizza_type: "Veggie"
+  steps:
+  - action: utter_ask_topping_veggie
+
+- rule: Ask for size during form
+  condition:
+    - active_loop: order_pizza_form
+    - slot_was_set:
+      - topping
+  steps:
+  - action: utter_ask_size
+
+- rule: Submit pizza order form
+  condition:
+    - active_loop: order_pizza_form
+    - slot_was_set:
+      - pizza_type
+      - topping
+      - size
+  steps:
+  - action: order_pizza_form
+  - active_loop: null
+  - action: utter_order_placed
+
+- rule: Handle thank you
+  steps:
+  - intent: thankyou
+  - action: utter_thanks
+
+- rule: Handle goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
-
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot

@@ -8,29 +8,37 @@ nlu:
     - hey there
     - good morning
     - good evening
-
+    - Hey hi
 - intent: order_pizza
   examples: |
+    - I want to order a pizza
+    - Can I order a pizza?
+    - Can I have a pizza?
     - I want a [Veggie](pizza_type) pizza
     - Can I get a [Protein](pizza_type) pizza with [chickpeas](topping)?
     - I'd like a [Cheese](pizza_type) pizza with [extra cheese](topping)
     - I want a large pizza
     - Give me a small pizza with [onions](topping)
     - A medium [Veggie](pizza_type) pizza please
-
+    - Can I get a [veggie]{"entity": "pizza_type", "value": "Veggie"} pizza?
+    - I want a [veggie]{"entity": "pizza_type", "value": "Veggie"} pizza
+    - I want [onions](topping) for toppings
+    - I want a [large](size) pizza
 - intent: inform
   examples: |
-    - I would like a [Veggie pizza](pizza_type)
-    - I prefer [Protein pizza](pizza_type)
-    - Can I have [Cheese pizza](pizza_type)?
     - Add [onions](topping) please
     - Include [capsicum](topping)
     - Add some [chickpeas](topping)
     - How about some [cottage cheese](topping)?
-
+    - confirm order
+    - This is my order
 - intent: thankyou
   examples: |
     - thank you
     - thanks
     - appreciate it
     - much obliged
+    - That would be all
+- synonym: Veggie
+  examples: |
+    - veggie

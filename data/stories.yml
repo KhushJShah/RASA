@@ -1,3 +1,5 @@
+version: "3.1"
+
 stories:
 - story: order pizza with form
   steps:
@@ -7,12 +9,39 @@ stories:
   - action: order_pizza_form
   - active_loop: order_pizza_form
   - slot_was_set:
-    - pizza_type: "Veggie"
-  - action: utter_ask_topping_veggie
-  - slot_was_set:
-    - topping: "onions"
-  - action: utter_ask_size
-  - slot_was_set:
-    - size: "large"
+    - pizza_type: Veggie
+    - topping: onions
+    - size: large
   - active_loop: null
-  - action: utter_order_placed
+  - action: action_confirm_order
+
+- story: thank you response
+  steps:
+  - intent: thankyou
+  - action: utter_thanks
+
+- story: goodbye response
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_pizza
+  - action: order_pizza_form
+  - active_loop: order_pizza_form
+  - slot_was_set:
+    - pizza_type: Veggie
+    - topping: onions
+    - size: large
+  - active_loop: null
+  - action: action_confirm_order
+
+- story: handle inform and thank you after order placement
+  steps:
+  - intent: inform
+  - action: action_confirm_order
+  - intent: thankyou
+  - action: utter_thanks

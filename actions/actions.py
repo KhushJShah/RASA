@@ -1,6 +1,38 @@
 from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
 from rasa_sdk import Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
+import random
+
+##Add the  buttons in the python file here.
+
+class ActionGreetUser(Action):
+    def name(self) -> Text:
+        return "action_greet_user"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Hi! Welcome here. How can I assist you today?")
+        return []
+
+class ActionConfirmOrder(Action):
+    def name(self) -> Text:
+        return "action_confirm_order"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        order_number = random.randint(1000, 9999)  # Generate a random order number
+        pizza_type = tracker.get_slot('pizza_type')
+        topping = tracker.get_slot('topping')
+        size = tracker.get_slot('size')
+        
+        confirmation_message = (f"Thank you for your order! You've ordered a {size} {pizza_type} pizza "
+                                f"with {topping}. Please take your order number {order_number} from the counter ahead.")
+        
+        dispatcher.utter_message(text=confirmation_message)
+        return []
 
 class ValidateOrderPizzaForm(FormValidationAction):
     def name(self) -> Text:
@@ -19,7 +51,7 @@ class ValidateOrderPizzaForm(FormValidationAction):
         dispatcher.utter_message(text=f"Sorry, we don't have {slot_value}. Please choose from Veggie, Protein, or Cheese.")
         return {"pizza_type": None}
 
-    d  def validate_topping(
+    def validate_topping(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
